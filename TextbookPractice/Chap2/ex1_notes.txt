@@ -1,0 +1,7 @@
+There are three operations one can do with a pointer: find the address from which it originates (&), find the address to which it points to (%p), and find the value stored at the pointed to address (format depends on pointer type, %x is generic).
+
+An interesting case is that of strings, where printing the address to which the pointer points to but using %s as opposed to %p gives the entire string, whereas the latter format just gives the address of the first character.
+
+Another interesting case is that of arrays, where the address of the array and the name of the array are the same object; i.e. &array and array will be treated as a pointer to the first element.
+
+The last important thing to note is that the values are printed in big endian format, with each successive byte containing a larger significant figure in hex. The default for placeholder zeroes is 'f'.
