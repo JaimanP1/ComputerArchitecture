@@ -1,0 +1,11 @@
+1) Figure 2.27, try to write code for it
+
+2) Prolem 2.77
+
+3) Complete skeleton code
+
+4) Page 26 Lecture note 4
+
+5) Page 39 Lecture note 4
+
+6) Reverse problem 3

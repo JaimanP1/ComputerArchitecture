@@ -1,0 +1,16 @@
+Some notes on textbook. Transfer to google docs when connected to WiFi.
+
+- When doing twos complement on the bits, need to carry the value when incrementing
+	- (4 --> -4): 0100 --> 1011 --> 1100
+	- Alternate way to complement each bit to the left of the rightmost bit with value 1
+- Unsigned integer multiplication that overflows is equivalent to (x*y)%(2^w)
+- Signed integer multiplication is done by assuming unsigned values then performing twos complement on the product
+	- For w bit x and y values, represent x*y with 2w bits, even is product can be expressed with fewer. Then truncate
+- Practice problem 2.35 is nonsense to me 
+- Practice problem 2.37 is helpful: (2^20 + 1) * 2^12 = 2^32 + 2^12 but for 32 bit machine --> (2^32 + 2^12) % 2^32
+	- Truncation due to overflow causes product to be 2^12 as opposed to 2^32 + 2^12
+- Learn logical/arithmetic bit shifts for (un)/signed integer division
+- Memorize floating point conventions for 32/64 bit systems; number of exponent and fraction bits
+- Watch a YouTube video or something about (de)/normalized floating point values
+- Denormalized values do not have an implied leading 1
+- 

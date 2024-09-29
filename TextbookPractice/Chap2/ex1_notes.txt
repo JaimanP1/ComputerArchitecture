@@ -4,4 +4,4 @@ An interesting case is that of strings, where printing the address to which the 
 
 Another interesting case is that of arrays, where the address of the array and the name of the array are the same object; i.e. &array and array will be treated as a pointer to the first element.
 
-The last important thing to note is that the values are printed in big endian format, with each successive byte containing a larger significant figure in hex. The default for placeholder zeroes is 'f'.
+The last important thing to note is that the values are printed in little endian format, with each successive byte containing a larger significant figure in hex. The default for placeholder zeroes is 'f'.
