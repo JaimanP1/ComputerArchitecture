@@ -1,6 +1,7 @@
 Figure 2.27 in textbook. Might have different values for the homework. Just get formula down
 
 	x	y	x*y	binary		Truncated	binary
+
 10000, 10101
 U: 	16	21	336	101010000	16		10000
 T: 	-16	-11	176	010110000	-16		10000
