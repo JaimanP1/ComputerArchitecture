@@ -1,0 +1,23 @@
+problem 3
+
+
+**Assuming x is in %rdx, y is in %rsi, z in %rdi**
+unknown:
+	imulq	%rdx, %rsi		// y = x * y
+	leaq	(%rsi,%rdi), %rax	// z + y
+	ret
+
+  long unknown(long x, long y, long z) {
+        return z + (x * y);
+  }
+
+**Assuming x is in %rdi**
+  unknown:
+	movq	%rdi, %rax	// %rax = x
+	salq	$3, %rax	// %rax << 3 (%rax * 8)
+	addq	%rdi, %rax	// %rax + 8
+	ret
+
+  long unknown(long x) {
+        return (x * 8) + 8;
+  }

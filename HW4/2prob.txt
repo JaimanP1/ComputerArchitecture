@@ -1,0 +1,10 @@
+problem 2
+
+Instruction			Destination	Value
+addq (%rdi),%rsi		%rsi		0xAB
+andq %rsi,%rdi			%rdi		0x1001
+subq %rsi,(%rdi)		0x1000		0xA9
+incq %rsi			%rsi		0x2
+decq %rdx			%rdx		0x1
+xorq (%rdi,%rdx,4),%rcx		%rcx		0xC8
+orq 0x1002(%rdx,%rcx),%rsi	%rsi		0xDC

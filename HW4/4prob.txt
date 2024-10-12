@@ -1,0 +1,12 @@
+problem 4
+
+long decode2(long x, long y, long z) {
+    y = y - z;          
+    x = x * y;          
+    long answer = y;    
+    answer = answer << 63;  
+    answer = answer >> 63;  
+    answer = answer ^ x;    
+    return answer;      
+}
+
