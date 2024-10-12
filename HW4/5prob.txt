@@ -1,0 +1,15 @@
+problem 5
+
+addq %rsi, %rdi     leaq (%rdi,%rsi), %rcx
+movq %rdi, %rcx     
+    
+subq %rdx, %rcx     leaq (%rcx,-%rdx) %rdi
+movq %rcx, %rdi     
+
+andq %rcx, %rsi     
+    
+imulq %rsi, %rdi    le:aq (%rsi,%rdi,%rdi-1) %rax
+movq %rdi, %rax     
+    
+ret
+

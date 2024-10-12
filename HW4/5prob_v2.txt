@@ -1,0 +1,11 @@
+leaq (%rdi,%rsi), %rcx   
+
+leaq (%rcx,%rdx,-1), %rdi  
+
+movq %rdi, %rsi         
+andq %rcx, %rsi         
+
+imulq %rdi, %rsi        
+movq %rsi, %rax         
+
+ret                     
