@@ -1,0 +1,45 @@
+
+Assuming x in %rsi, y in %rdi, z in %rdx
+ 
+reverse_logic:
+	cmpq	%rsi, %rdi		rdi - rsi
+	jge	.L3			>= 0 --> rdi >= rsi
+	cmpq	%rdx, %rdi		rdi - rdx
+	jle	.L4			<= 0 --> rdi <= rdx
+	movq	%rdx, %rax		
+	subq	%rdi, %rax		rdx -= rdi
+	ret				
+.L4:
+	leaq	(%rdi,%rdx), %rax	rdx + rdi 
+	ret
+.L3:
+	cmpq	%rdx, %rsi		rsi - rdx
+	jle	.L7			<= 0 --> rsi <= rdx
+	movq	%rdx, %rax		
+	subq	%rsi, %rax		rdx -= rsi
+	ret
+.L7:
+	leaq	(%rsi,%rdx), %rax	rsi + rdx 
+	ret
+
+
+long reverse_logic(long x, long y, long z)
+{
+    	long result;
+	if (y >= x){
+		if (x <= z){
+			result = x + z;
+			return result;
+		}
+		result = z;
+		result -= x;
+		return result;
+	}    
+	if (y <= z){
+		result = y + z;
+		return result;
+	}
+	result = z;
+	result -= y
+    	return result;
+}

@@ -1,0 +1,11 @@
+Assuming Big-Endian, except for part d.
+
+	Address	Instructions in Hexa	---	Assembly Instructions
+(a)	ab1234:	74 08				je ab123e
+	ab1236:	48 89 d0			mov %rdx,%rax
+(b)	abcdef:	7c 07				jl abcdf8
+	abcdf1:	48 39 f7			cmp %rsi,%rdi
+(c)	123443:	7d 11				jge 0x123456
+	123445:	48 85 ab			test %rdi,%rdi
+(d)	ab01f0:	7f 2f ff ff			jg ab01e6
+	ab01f4:	48 39 d6			mov %rdx,%rsi

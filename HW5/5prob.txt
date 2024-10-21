@@ -1,0 +1,25 @@
+Assuming a in %rdi and b in %rsi
+
+loop_while_hw5:
+.LFB0:
+	movl	$1, %eax	0...01 in result
+	jmp	.L2
+.L3:
+	movq	%rdi, %rdx	c = b
+	subq	%rsi, %rdx	c -= a --> b - a
+	addq	%rdx, %rax	result += c
+	addq	$1, %rsi	a++
+.L2:
+	cmpq	%rdi, %rsi	rsi - rdi
+	jl	.L3		<0 --> rdi > rsi 
+	rep ret
+
+long loop_while_hw5(long a, long b)
+{
+    long result = 1;
+    while (a > b) {
+	result = result + (a - b);
+	b = b + 1;
+    }
+    return result;
+}

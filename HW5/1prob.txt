@@ -1,0 +1,9 @@
+	Number Type		%rdi/edi/di	%rsi/esi/si	Instruction		CF	SF	ZF	OF
+(a)	Unsigned		0xFFFE		0x4		addw %di, %si		1	0	0	0
+(b)	Unsigned		0xFFFE		0x4		addl %edi, %esi		0	0	0	0
+(c)	Signed two's complement	0xFFFE		0x2		addw %di, %si		0	0	1	0
+(d)	Signed two's complement	0xFFFE		0x2		addl %edi, %esi		0	0	0	0	
+(e)	Signed two's complement	0xFFFFFFFF	0x80000000	addl %edi, %esi		0	1	0	1
+(f)	Signed two's complement	0xFFFF		-0xFFFF		subl %si, %di		0	1	0	0
+(g)	Signed two's complement	0xFFFFFFFE	0x7FFFFFFE	subl %esi, %edi		0	1	0	0		
+(h)	Unsigned		0xF		0xFF		shlq 64, %rdi		1	0	1	0		

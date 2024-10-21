@@ -1,0 +1,56 @@
+Assuming a in %rsi, b in %rdi, c in %rdx
+
+switch_hw5:
+.L3:
+	movq	%rdx, %rax	val = c
+	subq	%rdi, %rax	val -= b
+	ret			val = c - b
+.L5:
+	movq	%rsi, %rdx	c = a
+	salq	$4, %rdx	c << 4
+	addq	%rsi, %rdx	c += a --> (a << 4) + a
+.L6:
+	movq	%rdx, %rax	val = c
+	xorb	$-1, %al	val ^ 0xFF
+	ret			val = c ^ 0xFF
+.L7:
+	leaq	(%rdx,%rsi), %rax	val = a + c
+	sarq	$4, %rax		val >> 4
+	ret				val = (a + c) >> 4
+.L2:
+	leaq	(%rdi,%rsi), %rax	val =  a + b
+	ret
+(c) Jump Table
+.L4:
+	.quad	.L3
+	.quad	.L5
+	.quad	.L2
+	.quad	.L6
+	.quad	.L2
+	.quad	.L7
+	.quad	.L2
+	.quad	.L7
+
+void switch_hw5(long a, long b, long c, long *dest)
+{
+    long val;
+    switch(a) {
+    case 0:
+	val = c - b;
+	break;
+    case 1:
+	c = (a << 4) + a;
+	/* Fall through */
+    case 3:
+	val = c ^ 0xFF;
+	break;
+    case 5:
+    case 7:
+	val = (a + c) >> 4;
+	break;
+    default:
+	val = a + b;
+    }
+    return val;
+}
+    
