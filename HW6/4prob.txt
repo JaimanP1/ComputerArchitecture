@@ -1,0 +1,9 @@
+	Array declaration	Element size	Total size	Start address	Element i
+(a)	char r[4];		1 byte		4 bytes		x_r		x_r + i
+(b)	char *s[4];		8 bytes		32 bytes	x_s		x_s + 8i
+(c)	short t[5];		2 bytes		10 bytes	x_t		x_t + 2i
+(d)	short *u[5];		8 bytes		40 bytes	x_u		x_u + 8i
+(e)	short **v[3];		8 bytes		24 bytes	x_v		x_v + 8i
+(f)	int w[4];		4 bytes		16 bytes	x_w		x_w + 4i
+(g)	long *x[5];		8 bytes		40 bytes	x_x		x_x + 8i
+(h)	double *y[6];		8 bytes		48 bytes	x_y		x_y + 8i

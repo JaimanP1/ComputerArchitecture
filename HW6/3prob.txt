@@ -1,0 +1,25 @@
+long unknown(unsigned long x) {
+    if (x == 0)
+        return 0;
+
+    unsigned long nx = x & 1;
+    long rv = unknown(x >> 1);
+    return nx + rv;
+}
+
+
+000000000000000 <unknown>:
+   0:	48 85 ff             	test   %rdi,%rdi
+   3:	75 06                	jne    b <unknown+0xb>
+   5:	b8 00 00 00 00       	mov    $0x0,%eax
+   a:	c3                   	retq   
+   b:	53                   	push   %rbx			some value goes onto stack
+   c:	48 89 f8             	mov    %rdi,%rax		ret x
+   f:	48 83 f0 01          	xor    $0x1,%rax		x ^ 1
+  13:	83 e0 01             	and    $0x1,%eax		x & 1 	what to do about %eax
+  16:	48 89 c3             	mov    %rax,%rbx		value = (x ^ 1) & 1
+  19:	48 d1 ef             	shr    %rdi			???
+  1c:	e8 00 00 00 00       	callq  21 <unknown+0x21>	
+  21:	48 01 d8             	add    %rbx,%rax
+  24:	5b                   	pop    %rbx
+  25:	c3                   	retq   

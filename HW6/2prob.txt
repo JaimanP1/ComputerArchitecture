@@ -1,0 +1,9 @@
+1. Size of the stack is 32 bytes (line 24)
+
+2. Lines 24 and 8b allocate and free the stack
+
+3. Registers rbx (with value d) and rbp (with value e) are stored on the stack
+
+4. Values a, b, and c are stored on the stack
+
+5. There are only two callee-saved registers but more than two local variables

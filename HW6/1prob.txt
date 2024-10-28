@@ -1,0 +1,15 @@
+Line number	PC	Instruction	%rdi	%rsi	%rax	%rsp		*%rsp	Description
+14		4004fb	callq		3	9	0	0x7fffffffe820	---	Call top(x,y)
+---								
+6		4004dd	add		12	9	0	0x7fffffffe818	400500	Add x + y
+7		4004e0	mov		12	9	0	0x7fffffffe818	400500	z = 0
+8		4004e0	callq		12	9	0	0x7fffffffe818	400500	Call leaf(x,y)
+---								
+2		4004d6	mov		12	9	12	0x7fffffffe810	4004ea	z = y
+3		4004d9	sub		12	9	3	0x7fffffffe810	4004ea	z = y - z	
+4		4004dc	retq		12	9	3	0x7fffffffe810	4004ea	Return z
+---								
+9		4004ea	repz retq	12	9	3	0x7fffffffe818	400500	Return z			
+---								
+15		400500	repz retq	12	9	3	0x7fffffffe820	---	Return z
+
