@@ -1,0 +1,7 @@
+	offset				total size	alignment requirement
+	a	b	c	d		
+P1	0	4	8	12	16		4
+P2	0	8	12	16	24		8
+P3	0	2	n/a	n/a	12		2
+P4	0	32	n/a	n/a	40		8	
+P5	0	24	n/a	n/a	48		24

@@ -1,0 +1,8 @@
+A) The leaq instruction of line 5 computes the value 8n + 30, which is then
+rounded down to the nearest multiple of 16 by the andq instruction of line 6.
+The resulting value will be 8n + 8 when n is odd and 8n + 16 when n is even,
+and this value is subtracted from s1 to give s2.
+
+B) %r8 holds a 16 byte aligned address, which is greater than %rsp + 15
+
+D) p is 16 byte aligned and s2 has the same alignment as s1. 

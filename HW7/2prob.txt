@@ -1,0 +1,30 @@
+
+								no stack protector	stack protector
+gcc flag							-fno-stack-protector	-fstack-protector
+			
+len	
+assembly for allocating stack					subq    $16, %rsp	subq    $16, %rsp
+stack size in decimal						16 bytes		16 bytes
+assembly for freeing stack					leave			leave
+			
+lptoa	
+assembly for allocating stack					subq    $32, %rsp	subq    $32, %rsp
+stack size in decimal						32 bytes		32 bytes
+assembly for freeing stack					leave			leave
+"char *s" address relative to rsp after entering lptoa		%rsp + 8		%rsp + 8
+"long *p" address relative to rsp after entering lptoa		%rsp + 0		%rsp + 0
+"val" address relative to rsp after entering lptoa		%rsp + 24		%rsp + 24
+
+longlen	
+assembly for allocating stack					subq    $32, %rsp	subq    $48, %rsp
+stack size in decimal						32 bytes		48 bytes
+assembly for freeing stack					leave			leave
+"x" address relative to rsp after entering longlen		%rsp + 8		%rsp + 8
+"v" address relative to rsp after entering longlen		%rsp + 24		%rsp + 24
+"buf" address relative to rsp after entering longlen		%rsp + 16		%rsp + 32
+canary register name						n/a			fs:40
+canary address relative to rsp					n/a			%rsp + 40
+canary value							n/a			40
+assembly for erasing canary value				n/a			call    __stack_chk_fail@PLT
+assembly for canary cross check					n/a			subq    %fs:40, %rdx
+
